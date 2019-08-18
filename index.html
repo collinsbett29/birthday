@@ -1,0 +1,173 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <title>Get the day of week you were born</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+
+                </div>
+                <div class="col-8">
+                    
+                    <script>
+                     function birthday() 
+                     {
+                                
+                                var gender_value = new Array();
+                                gender_value["male"]=male;
+                                gender_value["female"]=female;
+                                var theForm = document.forms["birth"];
+                                var selectedgender = theForm.elements["gendername"];
+
+                                for(var i = 0; i < selectedgender.length; i++)
+                                {
+                                    
+                                    if(selectedgender[i].checked)
+                                    {
+                                        genderselect = gender_value[selectedgender[i].value];
+                                       
+                                        break;
+                                    }
+                                }
+
+                                var bday = document.getElementById("bday").value;
+                                var bdayArray = bday.split('-');
+                                
+                                //validation
+                                if(bdayArray.length !== 3){
+                                    alert("invalid Date");
+                                }else
+                                    {
+                                        if(!bdayArray[0].match(/^\d\d\d\d$/) || 
+                                        !bdayArray[1].match(/^\d\d$/) || 
+                                        !bdayArray[2].match(/^\d\d$/)){
+                                            alert("invalid Date");    
+                                        }else{
+                                            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday'];     
+                                            var currentTime = new Date(            
+                                                parseInt(bdayArray[0]),
+                                                parseInt(bdayArray[1]) - 1, //month starts from 0
+                                                parseInt(bdayArray[2])
+                                            );        
+                                            var currentDay = currentTime.getDay();       
+                                            var currentDayName= days[currentDay];
+                                            
+                                        }
+
+                                        // Male Akan Names
+                                        if(currentDayName === 'Sunday' && genderselect === male){
+                                            alert("You were born on " +currentDayName + " and your Akan Name  is Kwasi");
+                                            }
+                                            else if(currentDayName === 'Monday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Kwadwo");
+                                            }
+                                            else if(currentDayName === 'Tuesday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Kwabena");
+                                            }
+                                            else if(currentDayName === 'Wednesday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Kwaku");
+                                            }
+                                            else if(currentDayName === 'Thursday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Yaw");
+                                            }
+                                            else if(currentDayName === 'Friday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Kofi");
+                                            }
+                                            else if(currentDayName === 'Saturday' && genderselect === male)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Kwame");
+                                            }
+
+                                            // Female Akan Names
+
+                                            if(currentDayName === 'Sunday' && genderselect === female){
+                                            alert("You were born on " +currentDayName + " and your Akan Name  is Akosua");
+                                            }
+                                            else if(currentDayName === 'Monday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Adwoa");
+                                            }
+                                            else if(currentDayName === 'Tuesday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Abenaa");
+                                            }
+                                            else if(currentDayName === 'Wednesday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Akua");
+                                            }
+                                            else if(currentDayName === 'Thursday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Yaa");
+                                            }
+                                            else if(currentDayName === 'Friday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Afua");
+                                            }
+                                            else if(currentDayName === 'Saturday' && genderselect === female)
+                                            {
+                                                alert("You were born on " +currentDayName + " and your Akan Name  is Ama");
+                                            }
+
+                                        
+                                    }
+                     }
+                    </script>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="text-center">Calculate the day of the week you were born and get your Akan Name</h4>
+                        </div>
+                    </div><br>
+                    
+                    <form id="birth">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                <label for="birthday"><b> Enter Your Birthday</b></label>
+                                <input type="text" class="form-control" id="bday"  placeholder="YYYY-MM-DD">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p><b>Choose Your Gender Below</b></p>
+                                <div class="form-check form-check-inline">
+                                        <input class="form-check-input " type="radio" name="gendername" id="male" value="male">
+                                        <label class="form-check-label" for="male">
+                                        Male
+                                        </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gendername" id="female" value="female">
+                                        <label class="form-check-label" for="female">
+                                        Female
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                
+                            </div>
+                            <div class="col">
+                                    <button onclick="birthday()" class="btn btn-success">Submit</button>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-2">
+
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
